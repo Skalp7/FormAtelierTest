@@ -1,5 +1,7 @@
 # FORM ATELIER
 
+Web design & digital presence.
+
 Premium digital atelier website built with Next.js App Router, TypeScript, Tailwind CSS, Framer Motion and Contentlayer MDX.
 
 ## Development
