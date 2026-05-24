@@ -1,0 +1,12 @@
+node_modules
+.next
+.contentlayer
+.vercel
+.wrangler
+dist
+out
+*.log
+.DS_Store
+.env
+.env.local
+tsconfig.tsbuildinfo
