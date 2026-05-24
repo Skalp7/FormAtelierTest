@@ -15,7 +15,7 @@ export function Hero() {
         2026
       </div>
       <div className="pointer-events-none absolute right-8 top-28 hidden h-40 w-40 rounded-full bg-ink p-5 md:block">
-        <Image src="/form-atelier-mark.svg" alt="" width={128} height={128} className="h-full w-full" />
+        <Image src="/form-atelier-logo-blue.png" alt="" width={160} height={160} className="h-full w-full object-contain" />
       </div>
       <div className="relative z-10 mx-auto grid max-w-[1500px] gap-12 md:grid-cols-12">
         <div className="md:col-span-10">

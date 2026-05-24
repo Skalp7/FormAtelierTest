@@ -11,7 +11,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-[1500px] gap-10 md:grid-cols-12">
         <div className="relative md:col-span-5">
           <div className="flex items-center gap-4">
-            <Image src="/form-atelier-mark.svg" alt="" width={56} height={56} className="h-14 w-14 rounded-full bg-ink" />
+            <Image src="/form-atelier-logo-blue.png" alt="" width={56} height={56} className="h-14 w-14 object-contain" />
             <p className="text-4xl font-semibold lowercase leading-none">form <span className="font-extralight">atelier</span></p>
           </div>
           <p className="mt-6 max-w-sm text-sm leading-6 text-paper/70">
