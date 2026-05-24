@@ -54,10 +54,10 @@ export default function ProjectPage({ params }: Params) {
       <article className="mx-auto max-w-[1500px]">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-8">
-            <p className="text-xs uppercase tracking-caps text-graphite">
+            <p className="text-xs font-semibold uppercase tracking-caps text-graphite">
               {project.client} · {project.year} · {project.sector}
             </p>
-            <h1 className="mt-8 font-display text-7xl font-medium leading-[0.86] md:text-[9rem]">
+            <h1 className="mt-8 font-display text-7xl font-extrabold leading-[0.86] md:text-[9rem]">
               {project.title}
             </h1>
           </div>
@@ -66,18 +66,18 @@ export default function ProjectPage({ params }: Params) {
           </div>
         </div>
 
-        <div className="relative mt-16 aspect-[16/10] overflow-hidden rounded-sm">
+        <div className="relative mt-16 aspect-[16/10] overflow-hidden bg-mist">
           <Image
             src={project.cover}
             alt={`${project.title} hero image`}
             fill
             priority
-            className="object-cover"
+            className="object-cover grayscale"
             sizes="100vw"
           />
         </div>
 
-        <dl className="mt-10 grid gap-6 border-y border-line py-8 md:grid-cols-3">
+        <dl className="mt-10 grid gap-6 border-y border-ink py-8 md:grid-cols-3">
           <div>
             <dt className="text-xs uppercase tracking-caps text-graphite">Services</dt>
             <dd className="mt-4 text-sm leading-6">{project.services.join(", ")}</dd>
@@ -101,9 +101,9 @@ export default function ProjectPage({ params }: Params) {
         </div>
 
         <section className="mt-28 border-t border-line pt-10">
-          <p className="text-xs uppercase tracking-caps text-graphite">Next Project</p>
+          <p className="text-xs font-semibold uppercase tracking-caps text-graphite">Next Project</p>
           <a href={nextProject.url} className="group mt-6 flex items-end justify-between gap-6">
-            <span className="font-display text-5xl leading-none md:text-8xl">{nextProject.title}</span>
+            <span className="font-display text-5xl font-extrabold leading-none md:text-8xl">{nextProject.title}</span>
             <ArrowRight className="h-8 w-8 shrink-0 transition group-hover:translate-x-2" />
           </a>
           <div className="mt-12">

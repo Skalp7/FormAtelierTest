@@ -10,44 +10,42 @@ import { metrics, processSteps, serviceGroups, testimonials } from "@/lib/conten
 
 export function Hero() {
   return (
-    <section className="relative isolate min-h-[92vh] overflow-hidden px-5 pb-12 pt-28 md:px-8 md:pt-36">
-      <div className="absolute inset-x-0 top-0 z-0 h-[72vh] opacity-90">
-        <Image
-          src="/images/atelier-hero.png"
-          alt="Editorial studio table with architectural digital layouts"
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-paper/20 via-paper/50 to-paper" />
+    <section className="relative isolate min-h-screen overflow-hidden bg-paper px-5 pb-12 pt-28 md:px-8 md:pt-36">
+      <div className="pointer-events-none absolute bottom-[-8vw] right-[-4vw] z-0 font-display text-[28vw] font-extrabold leading-none text-graphite/[0.08]">
+        2026
+      </div>
+      <div className="pointer-events-none absolute right-8 top-28 hidden h-40 w-40 rounded-full bg-ink p-5 md:block">
+        <Image src="/form-atelier-mark.svg" alt="" width={128} height={128} className="h-full w-full" />
       </div>
       <div className="relative z-10 mx-auto grid max-w-[1500px] gap-12 md:grid-cols-12">
-        <div className="md:col-span-9">
+        <div className="md:col-span-10">
           <Reveal>
-            <p className="mb-7 text-xs font-medium uppercase tracking-caps text-graphite">
-              Digital atelier for crafted presence
+            <p className="mb-8 max-w-md text-sm font-medium uppercase leading-6 tracking-caps text-graphite">
+              France - Swiss - Worldwide / Digital atelier for bespoke websites and strategic presence
             </p>
-            <h1 className="font-display text-[16vw] font-medium leading-[0.86] tracking-normal text-ink md:text-[8.6vw] lg:text-[7.6rem] xl:text-[8.4rem]">
-              We give digital presence a precise and lasting form.
+            <h1 className="font-display text-[18vw] font-extrabold leading-[0.86] tracking-normal text-ink md:text-[10.5vw] lg:text-[9.6rem]">
+              Digital form. Built with clarity.
             </h1>
           </Reveal>
         </div>
-        <div className="md:col-span-4 md:col-start-9 md:pt-12">
+        <div className="md:col-span-5 md:col-start-8">
           <Reveal delay={0.15}>
-            <p className="text-lg leading-8 text-graphite">
-              FORM ATELIER designs bespoke websites, visual systems and digital structures for businesses that need to be understood before they are noticed.
+            <p className="border-l border-ink pl-5 text-lg leading-8 text-graphite">
+              Un atelier digital qui conçoit des sites sur mesure et développe l’image de votre entreprise avec précision, structure et intention.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button href="#contact">Start a project</Button>
-              <Button href="/projects" variant="secondary">View work</Button>
+              <Button href="/projects" variant="secondary">Selected works</Button>
             </div>
           </Reveal>
         </div>
       </div>
-      <div className="relative z-10 mx-auto mt-16 flex max-w-[1500px] items-center gap-3 text-xs uppercase tracking-caps text-graphite">
+      <div className="relative z-10 mx-auto mt-16 flex max-w-[1500px] items-center gap-3 text-xs font-semibold uppercase tracking-caps text-graphite">
         <ArrowDown className="h-4 w-4 animate-bounce" />
         Scroll
+      </div>
+      <div className="absolute inset-x-0 bottom-0 z-10 border-y border-line bg-mist py-5 text-center text-sm font-semibold uppercase tracking-widebrand text-graphite">
+        Corporate identity and digital presence
       </div>
     </section>
   );
@@ -55,7 +53,7 @@ export function Hero() {
 
 export function SelectedWorks({ projects }: { projects: Project[] }) {
   return (
-    <Section id="work" eyebrow="01 Selected Works" title="Case studies with a point of view, not decoration.">
+    <Section id="work" eyebrow="01 Selected Works" title="Structured digital identities, built as systems.">
       <div>
         {projects.map((project, index) => (
           <ProjectCard key={project.slug} project={project} index={index} />
@@ -67,17 +65,17 @@ export function SelectedWorks({ projects }: { projects: Project[] }) {
 
 export function Manifesto() {
   return (
-    <Section eyebrow="02 Manifesto" title="Digital form is the meeting point between clarity, structure and feeling.">
+    <Section eyebrow="02 Brand Overview" title="Premium restraint, modern digital sophistication.">
       <div className="grid gap-10 md:grid-cols-12">
         <Reveal className="md:col-span-5">
           <p className="text-xl leading-9 text-graphite">
-            A website should not behave like a brochure stretched across a screen. It should carry the logic of the business, the tone of the people behind it and the precision of a system built to evolve.
+            Form Atelier balances Swiss minimalism, visual identity and functional structure. Each project is shaped as a coherent digital system: clear enough to read, distinctive enough to remember, and strong enough to evolve.
           </p>
         </Reveal>
         <div className="grid gap-6 md:col-span-6 md:col-start-7">
-          {["Crafting digital form", "Intentional hierarchy", "Clarity over noise", "Structure that holds", "Long-term digital craftsmanship"].map((item) => (
+          {["Clarity", "Precision", "Intentional design", "Structured image", "Enduring digital identities"].map((item) => (
             <Reveal key={item} className="border-t border-line py-5">
-              <p className="font-display text-4xl leading-none">{item}</p>
+              <p className="font-display text-4xl font-light leading-none">{item}</p>
             </Reveal>
           ))}
         </div>
@@ -88,7 +86,7 @@ export function Manifesto() {
 
 export function Services() {
   return (
-    <Section id="services" eyebrow="03 Services" title="A focused practice for image, presence and utility.">
+    <Section id="services" eyebrow="03 Services" title="Bespoke websites, visual identity and strategic presence.">
       <div className="grid gap-6 md:grid-cols-3">
         {serviceGroups.map((group) => (
           <Reveal key={group.title} className="border-t border-line pt-6">
@@ -96,7 +94,7 @@ export function Services() {
             <p className="mt-5 min-h-20 text-sm leading-6 text-graphite">{group.description}</p>
             <ul className="mt-8 grid gap-4">
               {group.items.map((item) => (
-                <li key={item} className="font-display text-3xl leading-none">{item}</li>
+                <li key={item} className="font-display text-3xl font-light leading-none">{item}</li>
               ))}
             </ul>
           </Reveal>
@@ -108,12 +106,12 @@ export function Services() {
 
 export function Process() {
   return (
-    <Section id="process" eyebrow="04 Process" title="A clear methodology for work that needs taste and reliability.">
+    <Section id="process" eyebrow="04 Process" title="A grid for moving from idea to precise digital form.">
       <div className="grid gap-0 border-y border-line md:grid-cols-6">
         {processSteps.map((step, index) => (
           <Reveal key={step} className="border-b border-line py-8 md:border-b-0 md:border-r md:px-5 last:md:border-r-0">
             <p className="text-xs uppercase tracking-caps text-graphite">{String(index + 1).padStart(2, "0")}</p>
-            <h3 className="mt-8 font-display text-4xl leading-none">{step}</h3>
+            <h3 className="mt-8 font-display text-4xl font-light leading-none">{step}</h3>
           </Reveal>
         ))}
       </div>
@@ -123,7 +121,7 @@ export function Process() {
 
 export function About() {
   return (
-    <Section id="about" eyebrow="05 About" title="A compact atelier for businesses that care how they are perceived.">
+    <Section id="about" eyebrow="05 About" title="A digital atelier focused on form, image and perception.">
       <div className="grid gap-12 md:grid-cols-12">
         <Reveal className="md:col-span-5">
           <p className="text-xl leading-9 text-graphite">
@@ -154,12 +152,12 @@ export function Technology() {
   ];
 
   return (
-    <Section eyebrow="06 Technology" title="Modern production, guided by taste.">
+    <Section eyebrow="06 Technology" title="Modern production, never as a shortcut.">
       <div className="grid gap-6 md:grid-cols-4">
         {tools.map((tool) => (
           <Reveal key={tool.title} className="border-t border-line pt-6">
-            <tool.icon className="h-5 w-5 text-moss" />
-            <h3 className="mt-8 font-display text-3xl leading-none">{tool.title}</h3>
+            <tool.icon className="h-5 w-5 text-graphite" />
+            <h3 className="mt-8 font-display text-3xl font-light leading-none">{tool.title}</h3>
             <p className="mt-5 text-sm leading-6 text-graphite">{tool.body}</p>
           </Reveal>
         ))}
@@ -170,12 +168,12 @@ export function Technology() {
 
 export function Trust() {
   return (
-    <Section eyebrow="07 Trust" title="Built as a credible foundation before it becomes a larger archive.">
+    <Section eyebrow="07 Trust" title="Consistency, clarity and cohesion across every touchpoint.">
       <div className="grid gap-8 md:grid-cols-12">
         <div className="grid gap-4 md:col-span-5">
           {metrics.map((metric) => (
             <Reveal key={metric.label} className="flex items-end justify-between border-t border-line py-5">
-              <p className="font-display text-6xl leading-none">{metric.value}</p>
+              <p className="font-display text-6xl font-extrabold leading-none text-graphite">{metric.value}</p>
               <p className="max-w-40 text-right text-sm text-graphite">{metric.label}</p>
             </Reveal>
           ))}
@@ -183,7 +181,7 @@ export function Trust() {
         <div className="grid gap-6 md:col-span-6 md:col-start-7">
           {testimonials.map((item) => (
             <Reveal key={item.name} className="border-t border-line pt-6">
-              <p className="font-display text-3xl leading-tight">“{item.quote}”</p>
+              <p className="font-display text-3xl font-light leading-tight">“{item.quote}”</p>
               <p className="mt-6 text-sm text-graphite">{item.name} · {item.role}</p>
             </Reveal>
           ))}
@@ -195,7 +193,7 @@ export function Trust() {
 
 export function Contact() {
   return (
-    <Section id="contact" eyebrow="08 Contact" title="Begin with a business, a problem or an unfinished thought.">
+    <Section id="contact" eyebrow="08 Contact" title="Get info. Start with what needs to take form.">
       <div className="grid gap-12 md:grid-cols-12">
         <div className="md:col-span-5">
           <p className="text-lg leading-8 text-graphite">

@@ -9,21 +9,22 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        paper: "#f6f2eb",
-        ink: "#161614",
-        graphite: "#363632",
-        mist: "#d9d4ca",
-        line: "#c9c0b4",
-        moss: "#33453b",
-        clay: "#a56f57",
-        steel: "#66717a"
+        paper: "#ffffff",
+        ink: "#000000",
+        graphite: "#2f3842",
+        mist: "#f1f1f1",
+        line: "#d6d6d6",
+        moss: "#2f3842",
+        clay: "#8b8d8e",
+        steel: "#8b8d8e"
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],
-        display: ["var(--font-cormorant)", "Georgia", "serif"]
+        sans: ["var(--font-raleway)", "Raleway", "system-ui", "sans-serif"],
+        display: ["var(--font-raleway)", "Raleway", "system-ui", "sans-serif"]
       },
       letterSpacing: {
-        caps: "0.08em"
+        caps: "0.05em",
+        widebrand: "0.12em"
       },
       boxShadow: {
         soft: "0 24px 80px rgba(22, 22, 20, 0.12)"
