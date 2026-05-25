@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ProjectCard } from "@/components/project/project-card";
+import { ProjectsIndex } from "@/components/project/projects-index";
 import { getProjects } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -13,17 +13,7 @@ export default function ProjectsPage() {
   return (
     <main className="px-5 pb-24 pt-32 md:px-8 md:pt-44">
       <div className="grain" />
-      <div className="mx-auto max-w-[1500px]">
-        <p className="text-xs font-semibold uppercase tracking-caps text-graphite">Selected Works</p>
-        <h1 className="mt-8 max-w-5xl font-display text-7xl font-extrabold leading-[0.9] md:text-9xl">
-          Digital presence shaped with intention.
-        </h1>
-        <div className="mt-16">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.slug} project={project} index={index} />
-          ))}
-        </div>
-      </div>
+      <ProjectsIndex projects={projects} />
     </main>
   );
 }

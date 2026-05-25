@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     url: site.url,
     siteName: site.name,
     images: [{ url: "/images/atelier-hero.png", width: 1600, height: 1000 }],
-    locale: "en_US",
+    locale: "fr_FR",
     type: "website"
   },
   twitter: {
@@ -43,7 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   };
 
   return (
-    <html lang="en">
+  <html lang="fr">
       <body>
         <script
           type="application/ld+json"

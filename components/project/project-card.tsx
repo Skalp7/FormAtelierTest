@@ -4,8 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import type { Project } from "contentlayer/generated";
+import { useLocale } from "@/components/sections/language-switcher";
+import { commonCopy, projectText } from "@/lib/i18n";
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
+  const { locale } = useLocale();
+  const copy = commonCopy[locale];
+  const translatedProject = projectText(project, locale);
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 28 }}
@@ -26,16 +32,16 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         </div>
         <div className="md:col-span-5">
           <p className="text-xs font-semibold uppercase tracking-caps text-graphite">
-            {project.year} · {project.sector}
+            {translatedProject.year} · {translatedProject.sector}
           </p>
           <h3 className="mt-4 font-display text-5xl font-extrabold leading-[0.9] md:text-7xl">
-            {project.title}
+            {translatedProject.title}
           </h3>
-          <p className="mt-5 max-w-xl text-base leading-7 text-graphite">{project.excerpt}</p>
+          <p className="mt-5 max-w-xl text-base leading-7 text-graphite">{translatedProject.excerpt}</p>
         </div>
         <div className="flex items-end justify-between gap-6 text-sm font-semibold uppercase tracking-caps text-graphite md:col-span-2 md:block md:text-right">
           <span>{String(index + 1).padStart(2, "0")}</span>
-          <span className="mt-20 block text-ink">View case</span>
+          <span className="mt-20 block text-ink">{copy.viewCase}</span>
         </div>
       </Link>
     </motion.article>

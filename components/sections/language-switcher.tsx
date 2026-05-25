@@ -2,51 +2,25 @@
 
 import { useEffect, useState } from "react";
 import { Languages } from "lucide-react";
+import {
+  defaultLocale,
+  isLocale,
+  languages,
+  localeChangeEvent,
+  localeStorageKey,
+  navLabels,
+  type Locale
+} from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
-export type Locale = "fr" | "en" | "de";
-
-const languages: { code: Locale; short: string; label: string }[] = [
-  { code: "fr", short: "FR", label: "Français" },
-  { code: "en", short: "EN", label: "English" },
-  { code: "de", short: "DE", label: "Deutsch" }
-];
-
-const storageKey = "form-atelier-locale";
-
-export const navLabels: Record<Locale, Record<string, string>> = {
-  fr: {
-    Work: "Projets",
-    Services: "Services",
-    Process: "Méthode",
-    About: "Atelier",
-    Contact: "Contact"
-  },
-  en: {
-    Work: "Work",
-    Services: "Services",
-    Process: "Process",
-    About: "About",
-    Contact: "Contact"
-  },
-  de: {
-    Work: "Arbeiten",
-    Services: "Leistungen",
-    Process: "Prozess",
-    About: "Atelier",
-    Contact: "Kontakt"
-  }
-};
-
-function isLocale(value: string | null): value is Locale {
-  return value === "fr" || value === "en" || value === "de";
-}
+export { navLabels };
+export type { Locale };
 
 export function useLocale() {
-  const [locale, setLocale] = useState<Locale>("fr");
+  const [locale, setLocale] = useState<Locale>(defaultLocale);
 
   useEffect(() => {
-    const storedLocale = window.localStorage.getItem(storageKey);
+    const storedLocale = window.localStorage.getItem(localeStorageKey);
 
     if (isLocale(storedLocale)) {
       setLocale(storedLocale);
@@ -54,13 +28,27 @@ export function useLocale() {
       return;
     }
 
-    document.documentElement.lang = "fr";
+    document.documentElement.lang = defaultLocale;
+  }, []);
+
+  useEffect(() => {
+    function syncLocale(event: Event) {
+      const nextLocale = (event as CustomEvent<Locale>).detail;
+
+      if (isLocale(nextLocale)) {
+        setLocale(nextLocale);
+      }
+    }
+
+    window.addEventListener(localeChangeEvent, syncLocale);
+    return () => window.removeEventListener(localeChangeEvent, syncLocale);
   }, []);
 
   function updateLocale(nextLocale: Locale) {
     setLocale(nextLocale);
     document.documentElement.lang = nextLocale;
-    window.localStorage.setItem(storageKey, nextLocale);
+    window.localStorage.setItem(localeStorageKey, nextLocale);
+    window.dispatchEvent(new CustomEvent(localeChangeEvent, { detail: nextLocale }));
   }
 
   return { locale, setLocale: updateLocale };
