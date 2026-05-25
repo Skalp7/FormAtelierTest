@@ -88,7 +88,7 @@ export function ServicesScrollSection({
     <section
       ref={sectionRef}
       id="services"
-      className="relative isolate scroll-mt-24 border-t border-line bg-paper px-5 py-20 md:min-h-[560vh] md:px-8 md:py-0"
+      className="relative z-40 isolate scroll-mt-24 border-t border-line bg-paper px-5 py-20 md:min-h-[560vh] md:px-8 md:py-0"
     >
       <div className="mx-auto max-w-[1500px] md:sticky md:top-24 md:min-h-[calc(100vh-6rem)]">
         <div className="grid gap-10 md:grid-cols-12 md:items-center">

@@ -14,7 +14,7 @@ export const servicesSequence: ServiceSequenceItem[] = [
     id: "bespoke-websites",
     number: "01",
     frameStart: 1,
-    frameEnd: 17,
+    frameEnd: 58,
     title: {
       fr: "Sites web sur mesure",
       en: "Bespoke Websites",
@@ -29,8 +29,8 @@ export const servicesSequence: ServiceSequenceItem[] = [
   {
     id: "website-redesign",
     number: "02",
-    frameStart: 18,
-    frameEnd: 34,
+    frameStart: 59,
+    frameEnd: 116,
     title: {
       fr: "Refonte de site",
       en: "Website Redesign",
@@ -45,8 +45,8 @@ export const servicesSequence: ServiceSequenceItem[] = [
   {
     id: "brand-identity",
     number: "03",
-    frameStart: 35,
-    frameEnd: 51,
+    frameStart: 117,
+    frameEnd: 174,
     title: {
       fr: "Identité de marque",
       en: "Brand Identity",
@@ -61,8 +61,8 @@ export const servicesSequence: ServiceSequenceItem[] = [
   {
     id: "digital-art-direction",
     number: "04",
-    frameStart: 52,
-    frameEnd: 68,
+    frameStart: 175,
+    frameEnd: 232,
     title: {
       fr: "Direction artistique digitale",
       en: "Digital Art Direction",
@@ -77,8 +77,8 @@ export const servicesSequence: ServiceSequenceItem[] = [
   {
     id: "digital-consulting",
     number: "05",
-    frameStart: 69,
-    frameEnd: 85,
+    frameStart: 233,
+    frameEnd: 290,
     title: {
       fr: "Conseil digital",
       en: "Digital Consulting",
@@ -93,8 +93,8 @@ export const servicesSequence: ServiceSequenceItem[] = [
   {
     id: "business-tool-integration",
     number: "06",
-    frameStart: 86,
-    frameEnd: 102,
+    frameStart: 291,
+    frameEnd: 349,
     title: {
       fr: "Intégration d’outils métier",
       en: "Business Tool Integration",
@@ -109,8 +109,8 @@ export const servicesSequence: ServiceSequenceItem[] = [
   {
     id: "maintenance-evolution",
     number: "07",
-    frameStart: 103,
-    frameEnd: 120,
+    frameStart: 350,
+    frameEnd: 408,
     title: {
       fr: "Maintenance & évolution",
       en: "Maintenance & Evolution",
@@ -126,8 +126,8 @@ export const servicesSequence: ServiceSequenceItem[] = [
 
 export const serviceSequenceConfig = {
   basePath: "/sequences/services",
-  extension: "png",
-  frameCount: 120,
+  extension: "webp",
+  frameCount: 408,
   height: 900,
   width: 1280
 };

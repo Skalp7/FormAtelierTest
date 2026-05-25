@@ -316,9 +316,19 @@ export function ScrollMascot() {
     }
 
     gsap.registerPlugin(ScrollTrigger);
+    const mascotWrapper = wrapper.current;
     const headings = Array.from(document.querySelectorAll("main h2")) as HTMLElement[];
+    const updateServicesMask = () => {
+      const servicesRect = document.getElementById("services")?.getBoundingClientRect();
+      const isOverServices = Boolean(
+        servicesRect && servicesRect.top < window.innerHeight && servicesRect.bottom > 0
+      );
+
+      mascotWrapper.style.visibility = isOverServices ? "hidden" : "visible";
+    };
+
     gsap.fromTo(
-      wrapper.current,
+      mascotWrapper,
       { autoAlpha: 0, scale: 0.98 },
       { autoAlpha: 1, scale: 1, duration: 1.2, ease: "power3.out", delay: 0.35 }
     );
@@ -399,20 +409,28 @@ export function ScrollMascot() {
 
         if (wrapper.current) {
           const servicesRect = document.getElementById("services")?.getBoundingClientRect();
-          const servicesPresence =
-            servicesRect && servicesRect.top < window.innerHeight && servicesRect.bottom > 0 ? 1 : 0;
+          const isOverServices = Boolean(
+            servicesRect && servicesRect.top < window.innerHeight && servicesRect.bottom > 0
+          );
           const baseOpacity = sectionValue(progress, [
             [0, 0.92],
             [0.88, 0.9],
             [1, 0.12]
           ]);
 
-          wrapper.current.style.opacity = String(baseOpacity * (1 - servicesPresence));
+          wrapper.current.style.opacity = isOverServices ? "0" : String(baseOpacity);
+          wrapper.current.style.visibility = isOverServices ? "hidden" : "visible";
         }
       }
     });
 
+    updateServicesMask();
+    window.addEventListener("scroll", updateServicesMask, { passive: true });
+    window.addEventListener("resize", updateServicesMask);
+
     return () => {
+      window.removeEventListener("scroll", updateServicesMask);
+      window.removeEventListener("resize", updateServicesMask);
       trigger.kill();
     };
   }, []);

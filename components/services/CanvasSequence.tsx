@@ -193,7 +193,7 @@ export function CanvasSequence({
         aria-label="Abstract visual sequence showing the Form Atelier services process"
       />
       <noscript>
-        {/* Replace the generated PNG placeholders with exported WebP frames named frame_0001.webp...frame_0120.webp, then set extension to "webp" in data/services.ts. */}
+        {/* Export production frames as frame_0001.webp, frame_0002.webp... and keep data/services.ts in sync with the total frame count. */}
       </noscript>
     </div>
   );

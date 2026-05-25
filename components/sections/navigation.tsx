@@ -15,7 +15,7 @@ export function Navigation() {
       initial={{ y: -24, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed inset-x-0 top-0 z-40 px-5 py-4 md:px-8"
+      className="fixed inset-x-0 top-0 z-50 px-5 py-4 md:px-8"
     >
       <nav className="mx-auto flex max-w-[1500px] items-center justify-between gap-3 border-b border-ink bg-paper/90 pb-4 backdrop-blur-md">
         <Link href="/" className="flex shrink-0 items-center gap-3">
