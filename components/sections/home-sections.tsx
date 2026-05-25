@@ -7,6 +7,7 @@ import { Reveal } from "@/components/ui/reveal";
 import { Section } from "@/components/ui/section";
 import { ContactForm } from "@/components/sections/contact-form";
 import { ProjectCard } from "@/components/project/project-card";
+import { ServicesScrollSection } from "@/components/services/ServicesScrollSection";
 import { useLocale } from "@/components/sections/language-switcher";
 import { homeCopy } from "@/lib/i18n";
 
@@ -96,23 +97,7 @@ export function Services() {
   const { locale } = useLocale();
   const copy = homeCopy[locale].services;
 
-  return (
-    <Section id="services" eyebrow={copy.eyebrow} title={copy.title}>
-      <div className="grid gap-6 md:grid-cols-3">
-        {copy.groups.map((group) => (
-          <Reveal key={group.title} className="border-t border-line pt-6">
-            <h3 className="text-xs font-semibold uppercase tracking-caps">{group.title}</h3>
-            <p className="mt-5 min-h-20 text-sm leading-6 text-graphite">{group.description}</p>
-            <ul className="mt-8 grid gap-4">
-              {group.items.map((item) => (
-                <li key={item} className="font-display text-3xl font-light leading-none">{item}</li>
-              ))}
-            </ul>
-          </Reveal>
-        ))}
-      </div>
-    </Section>
-  );
+  return <ServicesScrollSection eyebrow={copy.eyebrow} locale={locale} title={copy.title} />;
 }
 
 export function Process() {

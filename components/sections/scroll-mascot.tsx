@@ -398,11 +398,16 @@ export function ScrollMascot() {
         target.current.velocity = velocity;
 
         if (wrapper.current) {
-          wrapper.current.style.opacity = String(sectionValue(progress, [
+          const servicesRect = document.getElementById("services")?.getBoundingClientRect();
+          const servicesPresence =
+            servicesRect && servicesRect.top < window.innerHeight && servicesRect.bottom > 0 ? 1 : 0;
+          const baseOpacity = sectionValue(progress, [
             [0, 0.92],
             [0.88, 0.9],
             [1, 0.12]
-          ]));
+          ]);
+
+          wrapper.current.style.opacity = String(baseOpacity * (1 - servicesPresence));
         }
       }
     });
