@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { ArrowDown, Cpu, Github, Cloud, Sparkles } from "lucide-react";
 import { Project } from "contentlayer/generated";
 import { Button } from "@/components/ui/button";
@@ -13,9 +12,6 @@ export function Hero() {
     <section className="relative isolate min-h-screen overflow-hidden bg-paper px-5 pb-12 pt-28 md:px-8 md:pt-36">
       <div className="pointer-events-none absolute bottom-[-8vw] right-[-4vw] z-0 font-display text-[28vw] font-extrabold leading-none text-graphite/[0.08]">
         2026
-      </div>
-      <div className="pointer-events-none absolute right-8 top-28 hidden h-40 w-40 rounded-full bg-ink p-5 md:block">
-        <Image src="/form-atelier-logo-blue.png" alt="" width={160} height={160} className="h-full w-full object-contain" />
       </div>
       <div className="relative z-10 mx-auto grid max-w-[1500px] gap-12 md:grid-cols-12">
         <div className="md:col-span-10">

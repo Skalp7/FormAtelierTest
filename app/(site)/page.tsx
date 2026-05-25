@@ -9,6 +9,7 @@ import {
   Technology,
   Trust
 } from "@/components/sections/home-sections";
+import { HomeIntro } from "@/components/sections/home-intro";
 import { getProjects } from "@/lib/content";
 
 export default function HomePage() {
@@ -17,6 +18,7 @@ export default function HomePage() {
   return (
     <main>
       <div className="grain" />
+      <HomeIntro />
       <Hero />
       <SelectedWorks projects={projects} />
       <Manifesto />
