@@ -6,17 +6,21 @@ import type { ServiceSequenceItem } from "@/data/services";
 export function ProgressIndicator({
   activeIndex,
   progress,
-  services
+  services,
+  tone = "dark"
 }: {
   activeIndex: number;
   progress: number;
   services: ServiceSequenceItem[];
+  tone?: "dark" | "light";
 }) {
+  const isLight = tone === "light";
+
   return (
     <div className="mt-10" aria-label="Services progress">
-      <div className="h-px w-full bg-line">
+      <div className={`h-px w-full ${isLight ? "bg-paper/24" : "bg-line"}`}>
         <motion.div
-          className="h-px bg-ink"
+          className={`h-px ${isLight ? "bg-paper" : "bg-ink"}`}
           animate={{ scaleX: progress }}
           initial={false}
           style={{ originX: 0 }}
@@ -27,7 +31,7 @@ export function ProgressIndicator({
         {services.map((service, index) => (
           <span
             key={service.id}
-            className={index === activeIndex ? "h-1 bg-ink" : "h-1 bg-line"}
+            className={index === activeIndex ? `h-1 ${isLight ? "bg-paper" : "bg-ink"}` : `h-1 ${isLight ? "bg-paper/24" : "bg-line"}`}
             aria-hidden="true"
           />
         ))}

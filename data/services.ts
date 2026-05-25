@@ -128,6 +128,6 @@ export const serviceSequenceConfig = {
   basePath: "/sequences/services",
   extension: "webp",
   frameCount: 408,
-  height: 900,
-  width: 1280
+  height: 360,
+  width: 640
 };

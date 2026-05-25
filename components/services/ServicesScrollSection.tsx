@@ -88,19 +88,35 @@ export function ServicesScrollSection({
     <section
       ref={sectionRef}
       id="services"
-      className="relative z-40 isolate scroll-mt-24 border-t border-line bg-paper px-5 py-20 md:min-h-[560vh] md:px-8 md:py-0"
+      className="relative z-40 isolate min-h-[520vh] scroll-mt-24 overflow-clip border-t border-line bg-ink text-paper md:min-h-[620vh]"
     >
-      <div className="mx-auto max-w-[1500px] md:sticky md:top-24 md:min-h-[calc(100vh-6rem)]">
-        <div className="grid gap-10 md:grid-cols-12 md:items-center">
+      <div className="sticky top-0 h-screen w-full">
+        <CanvasSequence
+          basePath={serviceSequenceConfig.basePath}
+          extension={serviceSequenceConfig.extension}
+          frameCount={serviceSequenceConfig.frameCount}
+          height={serviceSequenceConfig.height}
+          progress={progress}
+          reducedMotion={reducedMotion}
+          width={serviceSequenceConfig.width}
+          className="absolute inset-0 h-full w-full"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.78)_0%,rgba(0,0,0,0.58)_34%,rgba(0,0,0,0.22)_62%,rgba(0,0,0,0)_100%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_75%_50%,rgba(255,255,255,0.16),rgba(255,255,255,0)_42%)]" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-ink/70 to-transparent" />
+      </div>
+
+      <div className="relative z-10 -mt-[100vh] min-h-[520vh] px-5 md:min-h-[620vh] md:px-8">
+        <div className="mx-auto flex min-h-screen max-w-[1500px] items-center pt-24 md:sticky md:top-0">
           <motion.div
-            className="md:col-span-5"
+            className="w-full max-w-3xl py-20 md:max-w-[46rem]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-120px" }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="text-xs font-semibold uppercase tracking-caps text-graphite">{eyebrow}</p>
-            <h2 className="mt-8 max-w-xl font-display text-4xl font-extrabold leading-[0.95] md:text-6xl">
+            <p className="text-xs font-semibold uppercase tracking-caps text-paper/75">{eyebrow}</p>
+            <h2 className="mt-8 max-w-2xl font-display text-4xl font-extrabold leading-[0.95] text-paper md:text-7xl">
               {title}
             </h2>
             <ServicePanel
@@ -108,29 +124,8 @@ export function ServicesScrollSection({
               locale={locale}
               progress={progress}
               services={services}
+              tone="light"
             />
-          </motion.div>
-
-          <motion.div
-            className="md:col-span-6 md:col-start-7"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-120px" }}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div className="relative aspect-[16/11] overflow-hidden border border-ink bg-mist shadow-[0_30px_90px_rgba(0,0,0,0.08)] md:aspect-[4/5]">
-              <CanvasSequence
-                basePath={serviceSequenceConfig.basePath}
-                extension={serviceSequenceConfig.extension}
-                frameCount={serviceSequenceConfig.frameCount}
-                height={serviceSequenceConfig.height}
-                progress={progress}
-                reducedMotion={reducedMotion}
-                width={serviceSequenceConfig.width}
-                className="absolute inset-0"
-              />
-              <div className="pointer-events-none absolute inset-0 border border-paper/30" />
-            </div>
           </motion.div>
         </div>
       </div>
